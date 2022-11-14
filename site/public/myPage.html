@@ -1,17 +1,15 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../style/index.style.css">
     <link rel="stylesheet" href="../style/global.style.css">
+    <link rel="stylesheet" href="../style/myPage.style.css">
     <script src="../js/script.js"></script>
-    <link rel="shortcut icon" type="imagem/x-icon" href="../assets/s.png">
-    <title>SUIT'Bespoke</title>
+    <script src="../js/myPage.js"></script>
+    <title>SUIT'Bespoke | Conta</title>
 </head>
-
 <body>
     <header class="main-header">
         <div class="header_nav">
@@ -22,7 +20,7 @@
             </button>
         </div>
         <div class="header_nav_overlay" id="actionNav">
-            <span><a href="index.html" class="fecharNavX" onclick="fecharNav()">&times;</a></span>
+            <span><a href="/" class="fecharNavX" onclick="fecharNav()">&times;</a></span>
             <div class="container">
                 <div class="navegation_nav">
                     <details class="collapse">
@@ -52,95 +50,62 @@
         </div>
         <div class="header_actions">
             <div class="header__actions-item">
-                <button onclick="entrar()"><img src="../assets/icons/perfil-de-usuario.png" alt=""></a></button>
+                <button><img src="../assets/icons/perfil-de-usuario.png" alt=""></a></button>
             </div>
             <div class="header__actions-item">
-                <a href="#"><img src="../assets/icons/bolsa-de-compras.png" alt=""></a>
+                <a><img src="../assets/icons/bolsa-de-compras.png" alt=""></a>
             </div>
         </div>
     </header>
 
-    <main class="main_banner">
-        <div class="banner">
-            <div class="container">
-                <h1>New.</h1><br>
-            </div>
-        </div>
-    </main>
-
-    <section class="section_newIn">
+    <section class="account_title">
         <div class="container">
-            <div class="newIn_title">
-                <h3>New In</h3>
-                <h3 class="h3Menor">See all</h3>
+            <div class="content_title">
+                <h3>Bem-vindo <p id="resultName"></p></h3>
             </div>
-            <div class="content">
-                <div class="contentProduct">
-                    <a href="#"><img src="../assets/SuitcomTies.png" alt=""><br></a>
-                    <h4>Costume Grey Havana</h4>
-                    <p class="p_description">Pure Casentino Wool by Casentino, Italy</p>
-                    <h3>R$2.834</h3>
+            <div class="myInformation">
+                <h3>Minhas informações</h3>
+                <hr>
+            <div class="contentBox">
+                <div class="contentMyInformation">
+                    <h4>Perfil</h4>
+                    <p id="nameUser">Name</p>
+                    <p id="email">Email</p>
                 </div>
-                <div class="contentProduct">
-                    <a href="#"><img src="../assets/SuitBlack.png" alt=""><br></a>
-                    <h4>Costume Havana Black</h4>
-                    <p class="p_description">Wool Cashmere by E.Thomas, Italy</p>
-                    <h3>R$3.608</h3>
+                <div class="contentMyInformation">
+                    <h4>Endereço</h4>
+                    <p id="name"><img src="../assets/icons/sinal-de-mais.png" alt=""> Adicionar</p>
                 </div>
-                <div class="contentProduct">
-                    <a href="#"><img src="../assets/SuitGray.png" alt=""><br></a>
-                    <h4>Costume Light Grey Havana</h4>
-                    <p class="p_description">Pure Wool by Solbiati, Italy</p>
-                    <h3>R$2.318</h3>
+                <div class="contentMyInformation">
+                    <h4>Forma de Pagamento</h4>
+                    <p id="pagamento">Nenhum método de pagamento salvo</p>
                 </div>
+            </div>
             </div>
         </div>
     </section>
 
-    <section class="section_Information">
+    <section class="account_title2">
         <div class="container">
-                <div class="contentInformation">
-                    <h1 class="titleInformation">Não basta encaixar,<br>
-                    encontre seu próprio ajuste perfeito</h1>
+            <div class="myInformation">
+                <h3>Preferências de Email</h3>
+                <hr>
+            <div class="contentBox">
+                <div class="contentMyInformation">
+                    <h4>Perfil</h4>
+                    <h5>Você está atualmente inscrito em nossos e-mails.</h5>
+                    <p id="email">eric@suit.com.br</p>
+                    <p id="gerenciar"><img src="../assets/icons/ferramenta-lapis.png" alt="">Gerenciar preferências</p>
                 </div>
-                <div class="contentInformationBox">
-                    <div class="contentBoxInfo">
-                        <img src="../assets/icons/icon-alterations.svg" alt="">
-                        <h3>Alterações</h3>
-                        <p class="subtitleAlerations">Encurtar, alongar, afunilar e <br>muito mais,
-                        feito pelos nossos <br>alfaiates especializados na loja.</p>
-                    </div>
-                    <div class="contentBoxInfo">
-                        <img src="../assets/icons/icon-custom-made.svg" alt="">
-                        <h3>Personalizado</h3>
-                        <p class="subtitleCustom">Crie seu próprio Feito Sob Medida.<br>
-                        Peça do zero.</p>
-                    </div>
-                </div>
+            </div>
             </div>
         </div>
     </section>
 
-    <section class="section_localStore">
-        <div class="contentHomeStore">
-            <img src="../assets/footer-store.png" alt="">
-        </div>
-        <div class="contentInfoStore">
-            <h3>Location</h3>
-            <p>Alameda Gabriel Monteiro da Silva, 847 <br> Jardim America, São Paulo - SP <br>01441-002</p><br>
-            <a href="https://www.google.com/maps/dir//vasco+vasconcellos/@-23.5829765,-46.7143595,12z/data=!4m9!4m8!1m0!1m5!1m1!1s0x94ce59fd34e4dd71:0xa1851ea53be3d1cc!2m2!1d-46.678196!2d-23.5676817!3e0"><button>Maps</button></a>
-        </div>
-    </section>
-
-    <section class="section_form">
+    <section class="logautPage">
         <div class="container">
-            <div class="form">
-                <h4>Seja nosso cliente vip.</h4>
-                <p class="subtitle_form">Inscreva-se para receber as últimas novidades sobre produtos, estilo e eventos.</p>
-                <input type="text" placeholder="Email" id="input_1">
-                <button onclick="enviar_email()">Enviar</button>
-                <b id="exibirMensage"></b>
-                <img src="../assets/fair-wear-logo.png" alt="">
+            <div class="content-btn">
+                <button onclick="deslogar()">Log out</button>
             </div>
         </div>
     </section>
@@ -189,5 +154,4 @@
     </section>
 
 </body>
-
 </html>

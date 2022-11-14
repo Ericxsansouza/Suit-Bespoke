@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../style/global.style.css">
+    <link rel="stylesheet" href="../style/conta.style.css">
+    <script src="../js/scriptConta.js"></script>
+    <script src="../js/script.js"></script>
+    <script src="../js/funcoes.js"></script>
+    <link rel="shortcut icon" type="imagem/x-icon" href="view/assets/s.png">
+    <title>SUIT'Bespoke | Conta</title>
+</head>
+<body>
+    <header class="main-header">
+        <div class="header_nav">
+            <button class="btn_toggle" onclick="abrirNav()">
+                <span class="nav_icon">
+                    <img class="nav_icon-hamburguer" src="../assets/icons/menu-de-tres-linhas.png" alt="">
+                </span>
+            </button>
+        </div>
+        <div class="header_nav_overlay" id="actionNav">
+            <span><a href="/" class="fecharNavX" onclick="fecharNav()">&times;</a></span>
+            <div class="container">
+                <div class="navegation_nav">
+                    <details class="collapse">
+                        <summary class="title">Ternos</summary>
+                        <a href="#">Clássicos</a><br>
+                        <a href="#">Contemporâneo</a><br>
+                        <a href="#">Tuxedo</a>
+                    </details>
+                    <details class="collapse">
+                        <summary class="title">Sapatos</summary>
+                        <a href="#">Oxford</a><br>
+                        <a href="#">Monk Straps</a><br>
+                        <a href="#">Loafer</a>
+                    </details>
+                    <details class="collapse">
+                        <summary class="title">Acessórios</summary>
+                        <a href="#">Gravatas</a><br>
+                        <a href="#">Cinto</a><br>
+                        <a href="#">Pocket Squares</a><br>
+                    </details>
+                    <img src="../assets/s.png" alt="">
+                </div>
+            </div>
+        </div>
+        <div class="header_nav_title">
+            <h1 class="nav_title">SUIT'Bespoke</h1>
+        </div>
+        <div class="header_actions">
+            <div class="header__actions-item">
+                <button><img src="../assets/icons/perfil-de-usuario.png" alt=""></a></button>
+            </div>
+            <div class="header__actions-item">
+                <a><img src="../assets/icons/bolsa-de-compras.png" alt=""></a>
+            </div>
+        </div>
+    </header>
+
+    <section class="btnBack">
+        <div class="container">
+            <div class="contentBack">
+                <a href="index.html"><img src="../assets/icons/botao-de-seta-para-a-esquerda-do-teclado.png" alt=""></a>
+                <a href="index.html">Back</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="loginForm">
+        <div class="container">
+            <div class="contentForm">
+                <h3>Registre-se ou faça login</h3>
+                <p>Faça login com seu e-mail ou crie uma conta.</p>
+                <input type="text" id="input_email" placeholder="Email">
+                <input type="password" id="input_password" placeholder="Password">
+                <div id="icon" onclick="showHide()"></div>
+                <button onclick="entrar()">Continue</button>
+                <p class="accountNone">Não tem conta? <a href="newCustomers.html" class="linkCreateAccount">Acesse aqui para fazer uma.</a></p>
+            </div>
+        </div>
+    </section>
+
+    <div class="banner">
+        <div class="alerta_erro">
+            <div class="card_erro" id="cardErro">
+                <span id="mensagem_erro"></span>
+            </div>
+        </div>
+
+        <div id="div_aguardar" class="loading-div">
+            <img src="../assets/icons/progress.png" id="loading-gif">
+        </div>
+    
+        <div id="div_erros_login">
+    
+        </div>
+</body>
+</html>
+
+<script>
+
+function entrar() {
+    aguardar();
+
+    var emailUsuario = input_email.value;
+    var senhaUsuario = input_password.value;
+
+    if (emailUsuario == "" || senhaUsuario == "") {
+        alert("Mensagem de erro para todos os campos em branco");
+        finalizarAguardar();
+        return false;
+    }
+    else {
+        setInterval(sumirMensagem, 5000)
+    }
+
+    console.log("FORM LOGIN: ", emailUsuario);
+    console.log("FORM SENHA: ", senhaUsuario);
+
+    fetch("/usuarios/autenticar", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+            emailServer: emailUsuario,
+            senhaServer: senhaUsuario
+        })
+    }).then(function (resposta) {
+        console.log("ESTOU NO THEN DO entrar()!")
+
+        if (resposta.ok) {
+            console.log(resposta);
+
+            resposta.json().then(json => {
+                console.log(json);
+                console.log(JSON.stringify(json));
+
+                sessionStorage.EMAIL_USUARIO = json.email;
+                sessionStorage.NOME_USUARIO = json.nome;
+                sessionStorage.ID_USUARIO = json.id;
+
+                setTimeout(function () {
+                    window.location = "myPage.html";
+                }, 1000); // apenas para exibir o loading
+
+            });
+
+        } else {
+
+            console.log("Houve um erro ao tentar realizar o login!");
+
+            resposta.text().then(texto => {
+                console.error(texto);
+                finalizarAguardar(texto);
+            });
+        }
+
+    }).catch(function (erro) {
+        console.log(erro);
+    })
+
+    return false;
+}
+
+</script>

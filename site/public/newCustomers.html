@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../style/global.style.css">
+    <link rel="stylesheet" href="../style/newCustomers.style.css">
+    <script src="../js/script.js"></script>
+    <script src="../js/funcoes.js"></script>
+    <link rel="shortcut icon" type="imagem/x-icon" href="view/assets/s.png">
+    <title>SUIT'Bespoke | Conta</title>
+</head>
+<body>
+    <header class="main-header">
+        <div class="header_nav">
+            <button class="btn_toggle" onclick="abrirNav()">
+                <span class="nav_icon">
+                    <img class="nav_icon-hamburguer" src="../assets/icons/menu-de-tres-linhas.png" alt="">
+                </span>
+            </button>
+        </div>
+        <div class="header_nav_overlay" id="actionNav">
+            <span><a href="/" class="fecharNavX" onclick="fecharNav()">&times;</a></span>
+            <div class="container">
+                <div class="navegation_nav">
+                    <details class="collapse">
+                        <summary class="title">Ternos</summary>
+                        <a href="#">Clássicos</a><br>
+                        <a href="#">Contemporâneo</a><br>
+                        <a href="#">Tuxedo</a>
+                    </details>
+                    <details class="collapse">
+                        <summary class="title">Sapatos</summary>
+                        <a href="#">Oxford</a><br>
+                        <a href="#">Monk Straps</a><br>
+                        <a href="#">Loafer</a>
+                    </details>
+                    <details class="collapse">
+                        <summary class="title">Acessórios</summary>
+                        <a href="#">Gravatas</a><br>
+                        <a href="#">Cinto</a><br>
+                        <a href="#">Pocket Squares</a><br>
+                    </details>
+                    <img src="../assets/s.png" alt="">
+                </div>
+            </div>
+        </div>
+        <div class="header_nav_title">
+            <h1 class="nav_title">SUIT'Bespoke</h1>
+        </div>
+        <div class="header_actions">
+            <div class="header__actions-item">
+                <button><img src="../assets/icons/perfil-de-usuario.png" alt=""></a></button>
+            </div>
+            <div class="header__actions-item">
+                <a><img src="../assets/icons/bolsa-de-compras.png" alt=""></a>
+            </div>
+        </div>
+    </header>
+
+    <section class="btnBack">
+        <div class="container">
+            <div class="contentBack">
+                <a href="conta.html"><img src="../assets/icons/botao-de-seta-para-a-esquerda-do-teclado.png" alt=""></a>
+                <a href="conta.html">Back</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="loginForm">
+        <div class="container">
+            <div class="contentForm">
+                <h3>Registre-se</h3>
+                <input type="text" id="input_nome" placeholder="Nome">
+                <input type="email" id="input_email" placeholder="Email">
+                <input type="password" id="input_password" placeholder="Senha">
+                <input type="password" id="input_check_password" placeholder="Confirmar Senha">
+                <!-- <a href="conta.html"><button onclick="continue_entrar()">Continue</button></a> -->
+                <button onclick="continue_entrar()">Continue</button>
+            </div>
+        </div>
+    </section>
+
+    <div id="div_aguardar" class="loading-div">
+        <img src="../assets/icons/progress.png" id="loading-gif">
+    </div>
+
+    <div id="div_erros_login">
+
+    </div>
+
+</body>
+</html>
+
+<script>
+    function continue_entrar() {
+        aguardar();
+
+        //Recupere o valor da nova input pelo nome do id
+        // Agora vá para o método fetch logo abaixo
+        var nomeUsuario = input_nome.value;
+        var emailUsuario = input_email.value;
+        var senhaUsuario = input_password.value;
+        var confirmacaoSenhaUsuario = input_check_password.value;
+
+        if (nomeUsuario == "" || emailUsuario == "" || senhaUsuario == "" || confirmacaoSenhaUsuario == "") {
+            alert("Mensagem de erro para todos os campos em branco");
+            finalizarAguardar();
+            return false;
+        }
+
+        // Enviando o valor da nova input
+        fetch("/usuarios/cadastrar", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                // crie um atributo que recebe o valor recuperado aqui
+                // Agora vá para o arquivo routes/usuario.js
+                nomeServer: nomeUsuario,
+                emailServer: emailUsuario,
+                senhaServer: senhaUsuario
+            })
+        }).then(function (resposta) {
+
+            console.log("resposta: ", resposta);
+
+            if (resposta.ok) {
+                alert('Cadastro realizado com sucesso! Redirecionando para tela de Login...');
+
+                setTimeout(() => {
+                    window.location = "conta.html";
+                }, "2000")
+                
+                limparFormulario();
+                finalizarAguardar();
+            } else {
+                throw ("Houve um erro ao tentar realizar o cadastro!");
+            }
+        }).catch(function (resposta) {
+            console.log(`#ERRO: ${resposta}`);
+            finalizarAguardar();
+        });
+
+        return false;
+    }
+</script>
