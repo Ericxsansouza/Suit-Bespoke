@@ -8,6 +8,7 @@ header{
     height: 20px;
     padding: 30px;
     background-color: var(--white);
+    border-bottom: 1px solid rgb(230, 228, 228);
 }
 
 header.sticky {
@@ -16,12 +17,8 @@ header.sticky {
     transition: 0.3s;
     z-index: 2;
     width: 100%;
-    /* position: fixed; */
+    position: fixed;
     height: 60px;
-    border-bottom: 1px solid rgb(230, 228, 228);
-}
-
-.main-header{
     border-bottom: 1px solid rgb(230, 228, 228);
 }
 
@@ -136,189 +133,81 @@ header.sticky {
     margin-left: 4rem;
 }
 
-.account_title{
+/* FIM Navbar */
+
+.titleCenter{
     width: 100%;
-    height: 100px;
-    margin-top: 4rem;
-}
-
-.content_title{
+    height: 200px;
     display: flex;
+    align-items: center;
     justify-content: center;
-    align-items: center;
 }
 
-.content_title h3{
-    padding: 40px;
-    text-align: center;
-    font-size: 25px;
-    font-family: 'Be Vietnam Pro', sans-serif;
-    font-weight: 600;
-    color: var(--blue-darkest);
-    cursor: default;
-}
-
-.myInformation h3{
-    margin-top: 5rem;
-    margin-bottom: 1rem;
-    font-size: 18px;
-    font-family: 'Be Vietnam Pro', sans-serif;
-    font-weight: 500;
-    color: var(--blue-darkest);
-    cursor: default;
-}
-
-.contentBox{
+.content{
     display: flex;
-    justify-content: space-between;
     align-items: center;
-    margin-top: 2.5rem;
+    justify-content: center;
 }
 
-.contentMyInformation{
+.content h1{
+    font-family: 'Be Vietnam Pro', sans-serif;
+    color: var(--blue-darkest);
+    font-size: 30px;
+    font-weight: 200;
+}
+
+.content span{
+    font-weight: 500;
+}
+
+.productSuits{
+    width: 100%;
+    height: 600px;
+}
+
+.contentDisplay{
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.contentSuits{
     display: flex;
     flex-direction: column;
+    margin: 5px;
+    margin-bottom: 5rem;
 }
 
-.contentMyInformation h4{
-    margin-bottom: 1rem;
-    font-size: 16px;
-    font-family: 'Be Vietnam Pro', sans-serif;
-    font-weight: 400;
-    color: var(--blue-darkest);
-    cursor: default;
-}
-
-.contentMyInformation p{
-    font-size: 14px;
-    font-family: 'Be Vietnam Pro', sans-serif;
-    font-weight: 300;
-    color: var(--light-gray);
-    cursor: default;
-    margin-bottom: 1rem;
-}
-
-.contentMyInformation img{
-    width: 12px;
-    margin-right: 5px;
-}
-
-.account_title2{
-    margin-top: 20rem;
-}
-
-.contentMyInformation h5{
-    font-size: 14px;
-    font-family: 'Be Vietnam Pro', sans-serif;
-    font-weight: 400;
-    color: var(--light-gray);
-    cursor: default;
-    margin-bottom: 1rem;
-}
-
-#gerenciar{
-    cursor: pointer;
-}
-
-#name{
-    cursor: pointer;
-}
-
-.logautPage{
-    margin-top: 5rem;
+.contentSuits img{
     width: 100%;
-    height: 100px;
-    margin-bottom: 3rem;
 }
 
-.content-btn{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.content-btn button{
-    margin-left: 10px;
-    border: none;
-    background-color: var(--white);
-    color: var(--light-gray);
-    border: solid 1px var(--gray);
-    padding: 15px 40px;
-    border-radius: 4px;
-    font-weight: 400;
-}
-
-.content-btn button:hover{
-    transition: .5s;
-    border: solid 1px var(--light-gray);
-}
-
-.section_footerContact{
-    margin-top: 6rem;
-    width: 100%;
-    height: 250px;
-}
-
-.containerBox{
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-}
-
-.containerSuporte{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-.footerBox h3{
-    text-align: center;
-    margin-bottom: 1rem;
+.contentSuits h4{
+    margin-top: 5px;
+    font-style: normal;
     font-weight: 500;
-    font-size: 19px;
-    text-align: center;
-    cursor: default;
-    font-family: 'Be Vietnam Pro', sans-serif;
-    color: var(--blue-darkest);
-}
-
-.footerBox li,a{
-    list-style: none;
-    text-align: center;
-    margin-bottom: 10px;
-    color: var(--blue-darkest);
-    font-family: 'Be Vietnam Pro', sans-serif;
     font-size: 13px;
-    font-weight: 300;
-}
-
-.section_footerRedes{
-    width: 100%;
-    height: 150px;
-}
-
-.contentRedes{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.contentRedes img{
-    margin-left: 3rem;
-    margin-top: 4rem;
-    width: 25px;
-}
-
-.contentLink p{
-    color: var(--blue-darkest);
-    font-size: 12px;
-    margin-top: 1rem;
-    text-align: end;
-    cursor: default;
+    line-height: 27px;
     font-family: 'Be Vietnam Pro', sans-serif;
+    color: var(--blue-darkest);
+    cursor: default;
 }
 
-.header__actions-item img{
-    width: 50px;
+.p_description{
+    font-style: normal;
+    font-weight: 600;
+    font-size: 11px;
+    color: var(--light-gray);
+    font-family: 'Be Vietnam Pro', sans-serif;
+    cursor: default;
+}
+
+.contentSuits h3{
+    margin-top: 7px;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 13px;
+    font-family: 'Be Vietnam Pro', sans-serif;
+    color: var(--blue-darkest);
     cursor: default;
 }
