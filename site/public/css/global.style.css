@@ -202,3 +202,18 @@ body {
 /* h1{
     color: white; text-shadow: rgba(26, 25, 25, 0.356) 0.1em 0.1em 0.2em;
 } */
+
+
+*::-webkit-scrollbar {
+    width: 3px;
+  }
+
+  *::-webkit-scrollbar-track {
+    background: var(--blue-dark);
+  }
+
+  *::-webkit-scrollbar-thumb {
+    background-color: var(--blue-darkest);
+    border-radius: 33px;
+    border: 0px 
+  }
