@@ -21,3 +21,7 @@ function enviar_email(){
 function entrar(){
     window.location="conta.html"
   }
+
+  function inicializar(){
+    window.location="index.html"
+  }

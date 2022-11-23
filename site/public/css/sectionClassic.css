@@ -107,6 +107,7 @@ header.sticky {
     font-size: 20px;
     letter-spacing: 0.1em;
     cursor: pointer;
+    font-weight: 800;
 }
 
 .header_actions{
