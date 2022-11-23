@@ -488,3 +488,28 @@ header.sticky {
     text-align: end;
     cursor: default;
 }
+
+.end{
+    width: 100%;
+    display: flex;
+    justify-content:left;
+    align-items: center;
+    margin-top: 1rem;
+}
+
+.end img{
+    width: 20px;
+}
+
+.end button{
+    border: none;
+    background-color: var(--blue-white);
+    margin-right: 10px;
+}
+
+.end b{
+    color: var(--blue-darkest);
+    font-size: 12px;
+    cursor: default;
+    font-family: 'Be Vietnam Pro', sans-serif;
+}
