@@ -26,14 +26,29 @@ function inicializar() {
     window.location = "index.html"
 }
 
-function contarCurtidas1(){
+function contarCurtidas1() {
     contador1.innerHTML = Number(contador1.innerHTML) + 1;
 }
 
-function contarCurtidas2(){
+function contarCurtidas2() {
     contador2.innerHTML = Number(contador2.innerHTML) + 1;
 }
 
-function contarCurtidas3(){
+function contarCurtidas3() {
     contador3.innerHTML = Number(contador3.innerHTML) + 1;
+}
+
+function converter() {
+    var receberDolar = Number(input_1.value);
+    var valorReal = receberDolar * 5.36;
+
+    if(receberDolar == 0){
+        resultado.innerHTML = `
+        Digite um valor no campo!
+        `
+    }else{
+        resultado.innerHTML = `
+        O Valor convertido em <b>R$ ${valorReal.toFixed(2)}</b>
+        `
+    }
 }
