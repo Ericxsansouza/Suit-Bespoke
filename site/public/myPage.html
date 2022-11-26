@@ -12,7 +12,7 @@
     <title>SUIT'Bespoke | Conta</title>
 </head>
 
-<body onload="validarSessao()">
+<body>
     <header class="main-header">
         <div class="header_nav">
             <button class="btn_toggle" onclick="abrirNav()">
@@ -51,9 +51,6 @@
             <h1 class="nav_title">SUIT'Bespoke</h1>
         </div>
         <div class="header_actions">
-            <!-- <div class="header__actions-item">
-                <button><img src="./assets/icons/perfil-de-usuario.png" alt=""></a></button>
-            </div> -->
             <div class="header__actions-item">
                 <a><img src="./assets/fair-wear-logo.png" alt=""></a>
             </div>
@@ -72,12 +69,28 @@
                 <div class="contentBox">
                     <div class="contentMyInformation">
                         <h4>Perfil</h4>
-                        <p id="nameUser">Name</p>
-                        <p id="email">Email</p>
+                        <p id="nameUser"><button onclick="exibirNomeDoCliente()">
+                        <img src="./assets/icons/ferramenta-lapis.png" alt=""></button>Nome</p>
+                        <div id="contentBlockDoNome">
+                            <input type="text" id="buscarNomeDoCliente"><br>
+                            <button onclick="cadastrarNome()" id="btnDeCadastrarNome">Registrar nome</button>
+                        </div>
+                        <p id="emailUser"><button onclick="exibirEmailDoCliente()">
+                        <img src="./assets/icons/ferramenta-lapis.png" alt=""></button>Email</p>
+                        <div id="contentBlockDoEmail">
+                            <input type="text" id="buscarEmailDoCliente"><br>
+                            <button onclick="cadastrarEmail()" id="btnDeCadastrarEmail">Registrar email</button>
+                        </div>
                     </div>
                     <div class="contentMyInformation">
                         <h4>Endereço</h4>
-                        <p id="name"><img src="./assets/icons/sinal-de-mais.png" alt=""> Adicionar</p>
+                        <p id="name"><button class="btnEndereco" onclick="exibirEndereco()">
+                        <img src="./assets/icons/sinal-de-mais.png" alt=""></button>Adicionar endereço</p>
+                        <p id="exibicaoDoEndereco"></p>
+                        <div id="contentBlock">
+                            <input type="text" id="buscarEnderecoDoCliente"><br>
+                            <button onclick="cadastrarEndereco()">Registrar Endereco</button>
+                        </div>
                     </div>
                     <div class="contentMyInformation">
                         <h4>Forma de Pagamento</h4>

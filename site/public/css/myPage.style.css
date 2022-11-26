@@ -153,7 +153,7 @@ header.sticky {
     text-align: center;
     font-size: 25px;
     font-family: 'Be Vietnam Pro', sans-serif;
-    font-weight: 600;
+    font-weight: 300;
     color: var(--blue-darkest);
     cursor: default;
 }
@@ -204,7 +204,7 @@ header.sticky {
 }
 
 .account_title2{
-    margin-top: 20rem;
+    margin-top: 32rem;
 }
 
 .contentMyInformation h5{
@@ -409,4 +409,76 @@ header.sticky {
     font-family: 'Be Vietnam Pro', sans-serif;
     color: var(--blue-darkest);
     text-align: center;
+}
+
+.contentMyInformation button{
+    background-color: var(--white);
+    border: none;
+    margin-right: 8px;
+    cursor: pointer;
+}
+
+#contentBlockDoNome input{
+    width: 138px;
+    padding: 10px 20px;
+    outline: none;
+    border: none;
+    border-bottom: 1px solid var(--blue-darkest);
+}
+
+#contentBlockDoNome button{
+    background-color: var(--blue-darkest);
+    color: var(--white);
+    font-family: 'Be Vietnam Pro', sans-serif;
+    font-weight: 300;
+    padding: 10px 20px;
+    margin-bottom: 20px;
+}
+
+#contentBlockDoEmail input{
+    width: 138px;
+    padding: 10px 20px;
+    outline: none;
+    border: none;
+    border-bottom: 1px solid var(--blue-darkest);
+}
+
+#contentBlockDoEmail button{
+    background-color: var(--blue-darkest);
+    color: var(--white);
+    font-family: 'Be Vietnam Pro', sans-serif;
+    font-weight: 300;
+    padding: 10px 20px;
+}
+
+#contentBlockDoNome{
+    display: none;
+}
+
+#contentBlockDoEmail{
+    display: none;
+}
+
+#contentBlock{
+    display: none;
+}
+
+#resultName{
+    font-weight: 700;
+}
+
+#contentBlock input{
+    width: 160px;
+    padding: 10px 20px;
+    outline: none;
+    border: none;
+    border-bottom: 1px solid var(--blue-darkest);
+}
+
+#contentBlock button{
+    background-color: var(--blue-darkest);
+    color: var(--white);
+    font-family: 'Be Vietnam Pro', sans-serif;
+    font-weight: 300;
+    padding: 10px 20px;
 }
