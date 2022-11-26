@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -8,9 +9,11 @@
     <link rel="stylesheet" href="./css/newCustomers.style.css">
     <script src="./js/script.js"></script>
     <script src="./js/funcoes.js"></script>
+    <script src="js/validation.js"></script>
     <link rel="shortcut icon" type="imagem/x-icon" href="./assets/s.png">
     <title>SUIT'Bespoke | Conta</title>
 </head>
+
 <body>
     <header class="main-header">
         <div class="header_nav">
@@ -74,9 +77,14 @@
                 <h3>Registre-se</h3>
                 <input type="text" id="input_nome" placeholder="Nome">
                 <input type="email" id="input_email" placeholder="Email">
-                <input type="password" id="input_password" placeholder="Senha">
+                <input onfocus="mostrarRequisitos()" onkeyup="requisitosDaSenha()" type="password" id="input_password"
+                    placeholder="Senha">
+                <div style="color: gray; font-size: 12px; display: none;" id="contentRequisitos">
+                    <span id="minChar">• A senha deve conter no mínimo 8 caracteres</span>
+                    <span id="charMaiusculo">• A senha deve conter uma letra maiúscula</span>
+                    <span id="charSpecial">• A senha deve conter um caracter especial</span>
+                </div>
                 <input type="password" id="input_check_password" placeholder="Confirmar Senha">
-                <!-- <a href="conta.html"><button onclick="continue_entrar()">Continue</button></a> -->
                 <button onclick="continue_entrar()">Continue</button>
             </div>
         </div>
@@ -91,14 +99,11 @@
     </div>
 
 </body>
+
 </html>
 
 <script>
     function continue_entrar() {
-        // aguardar();
-
-        //Recupere o valor da nova input pelo nome do id
-        // Agora vá para o método fetch logo abaixo
         var nomeUsuario = input_nome.value;
         var emailUsuario = input_email.value;
         var senhaUsuario = input_password.value;
@@ -110,15 +115,12 @@
             return false;
         }
 
-        // Enviando o valor da nova input
         fetch("/usuarios/cadastrar", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
             },
             body: JSON.stringify({
-                // crie um atributo que recebe o valor recuperado aqui
-                // Agora vá para o arquivo routes/usuario.js
                 nomeServer: nomeUsuario,
                 emailServer: emailUsuario,
                 senhaServer: senhaUsuario
@@ -133,7 +135,7 @@
                 setTimeout(() => {
                     window.location = "conta.html";
                 }, "1000")
-                
+
                 limparFormulario();
                 finalizarAguardar();
             } else {

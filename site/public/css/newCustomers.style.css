@@ -154,7 +154,7 @@ header.sticky {
 }
 
 .contentForm h3{
-    margin-top: 5rem;
+    margin-top: 4rem;
     margin-bottom: 2rem;
     color: var(--blue-darkest);
     font-size: 22px;
@@ -164,7 +164,7 @@ header.sticky {
 }
 
 .contentForm p{
-    margin-top: 1.5rem;
+    margin-top: 1rem;
     color: var(--light-gray);
     font-size: 15px;
     font-family: 'Be Vietnam Pro', sans-serif;
@@ -271,4 +271,13 @@ header.sticky {
   .loading-div img {
     height: 50px;
     width: 50px;
+  }
+
+  #contentRequisitos span{
+    margin-top: 10px;
+    font-size: 12px; 
+    /* display: none; */
+    font-family: 'Be Vietnam Pro', sans-serif;
+    font-weight: 500;
+    color: var(--blue-darkest);
   }
