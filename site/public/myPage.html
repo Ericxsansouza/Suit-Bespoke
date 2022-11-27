@@ -89,12 +89,17 @@
                         <p id="exibicaoDoEndereco"></p>
                         <div id="contentBlock">
                             <input type="text" id="buscarEnderecoDoCliente"><br>
-                            <button onclick="cadastrarEndereco()">Registrar Endereco</button>
+                            <button onclick="cadastrarEndereco()">Registrar endereço</button>
                         </div>
                     </div>
                     <div class="contentMyInformation">
                         <h4>Forma de Pagamento</h4>
-                        <p id="pagamento">Nenhum método de pagamento salvo</p>
+                        <p id="pagamento"><button onclick="exibirFormaDePagamento()"><img src="./assets/icons/sinal-de-mais.png"></button>Nenhum método de pagamento salvo</p>
+                        <p id="exibicaoDeFormaDePagamento"></p>
+                        <div id="contentBlockDaFormaDePagamento">
+                            <input type="text" id="buscarFormaDePagamentoDoCliente"><br>
+                            <button onclick="cadastrarFormaDePagamento()">Registrar forma de pagamento</button>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -108,11 +113,15 @@
                 <hr>
                 <div class="contentBox">
                     <div class="contentMyInformation">
-                        <h4>Perfil</h4>
+                        <h4>Dados</h4>
                         <h5>Você está atualmente inscrito em nossos e-mails.</h5>
-                        <p id="email">eric@suit.com.br</p>
-                        <p id="gerenciar"><img src="./assets/icons/ferramenta-lapis.png" alt="">Gerenciar preferências
-                        </p>
+                        <p id="gerenciar"><button onclick="exibirEmailSecundario()">
+                        <img src="./assets/icons/ferramenta-lapis.png" alt=""></button>Gerenciar preferências</p>
+                        <p id="exibicaoDoEmailSecundario"></p>
+                        <div id="contentBlockEmailReserva">
+                            <input type="text" id="buscarEmailReservaDoCliente"><br>
+                            <button onclick="cadastrarEmailReserva()">Registrar email secundário</button>
+                        </div>
                     </div>
                 </div>
             </div>

@@ -26,6 +26,10 @@ function inicializar() {
     window.location = "index.html"
 }
 
+function irParaSecaoDeTernos(){
+    window.location = "SectionClassic.html"
+}
+
 function contarCurtidas1() {
     contador1.innerHTML = Number(contador1.innerHTML) + 1;
 }

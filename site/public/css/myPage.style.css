@@ -216,10 +216,6 @@ header.sticky {
     margin-bottom: 1rem;
 }
 
-#gerenciar{
-    cursor: pointer;
-}
-
 #name{
     cursor: pointer;
 }
@@ -326,8 +322,8 @@ header.sticky {
 .convertPage{
     width: 100%;
     height: 400px;
-    margin-top: 1rem;
-    /* background-color: aqua; */
+    margin-top: 5rem;
+    background-color: var(--blue-darkest);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -354,7 +350,7 @@ header.sticky {
     font-size: 25px;
     cursor: default;
     font-family: 'Be Vietnam Pro', sans-serif;
-    color: var(--blue-darkest);
+    color: var(--white);
 }
 
 .inputDisabled{
@@ -363,27 +359,25 @@ header.sticky {
     background-color: var(--white);
     color: var(--light-gray);
     border: solid 1px var(--gray);
-    border-radius: 4px;
     font-weight: 300;
     text-align: center;
 }
 
 .contentConverter label{
     text-align: center;
-    font-weight: 400;
+    font-weight: 200;
     font-size: 15px;
     cursor: default;
     font-family: 'Be Vietnam Pro', sans-serif;
-    color: var(--blue-darkest);
+    color: var(--white);
 }
 
 .contentConverter input{
     padding: 8px 20px;
     border: none;
-    background-color: var(--white);
-    color: var(--blue-darkest);
-    border: solid 1px var(--gray);
-    border-radius: 4px;
+    background-color: var(--blue-darkest);
+    color: var(--white);
+    border-bottom: 1px solid var(--white);
     font-weight: 400;
     text-align: center;
     outline: none;
@@ -392,10 +386,10 @@ header.sticky {
 .contentConverter button{
     padding: 15px 20px;
     border: none;
-    background-color: var(--blue-darkest);
-    color: var(--white);
+    background-color: var(--white);
+    color: var(--blue-darkest);
     border-radius: 4px;
-    font-weight: 400;
+    font-weight: 500;
     text-align: center;
     outline: none;
     font-family: 'Be Vietnam Pro', sans-serif;
@@ -407,7 +401,7 @@ header.sticky {
     font-size: 15px;
     cursor: default;
     font-family: 'Be Vietnam Pro', sans-serif;
-    color: var(--blue-darkest);
+    color: var(--white);
     text-align: center;
 }
 
@@ -476,6 +470,48 @@ header.sticky {
 }
 
 #contentBlock button{
+    background-color: var(--blue-darkest);
+    color: var(--white);
+    font-family: 'Be Vietnam Pro', sans-serif;
+    font-weight: 300;
+    padding: 10px 20px;
+}
+
+#contentBlockEmailReserva{
+    display: none;
+}
+
+#contentBlockEmailReserva input{
+    width: 160px;
+    padding: 10px 20px;
+    outline: none;
+    border: none;
+    border-bottom: 1px solid var(--blue-darkest);
+    margin-right: 2rem;
+}
+
+#contentBlockEmailReserva button{
+    background-color: var(--blue-darkest);
+    color: var(--white);
+    font-family: 'Be Vietnam Pro', sans-serif;
+    font-weight: 300;
+    padding: 10px 20px;
+}
+
+#contentBlockDaFormaDePagamento{
+    display: none;
+}
+
+#contentBlockDaFormaDePagamento input{
+    width: 160px;
+    padding: 10px 20px;
+    outline: none;
+    border: none;
+    border-bottom: 1px solid var(--blue-darkest);
+    margin-right: 2rem;
+}
+
+#contentBlockDaFormaDePagamento button{
     background-color: var(--blue-darkest);
     color: var(--white);
     font-family: 'Be Vietnam Pro', sans-serif;

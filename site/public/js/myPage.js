@@ -72,3 +72,48 @@ function cadastrarEmail(){
 }
 
 // Fim email
+
+// Começo email reserva
+
+function exibirEmailSecundario(){
+    contentBlockEmailReserva.style.display = 'flex';
+    contentBlockEmailReserva.style.flexDirection = 'colunm';
+}
+
+const listaEmailSecundario = [];
+function cadastrarEmailReserva(){
+    var emailSecundario = buscarEmailReservaDoCliente.value;
+    listaEmailSecundario.push(emailSecundario);
+
+    exibicaoDoEmailSecundario.innerHTML = "";
+    for(var i = 0; i < listaEmailSecundario.length; i++){
+        exibicaoDoEmailSecundario.innerHTML += `
+        ${listaEmailSecundario[i]}<br>
+        `
+    }
+    contentBlockEmailReserva.style.display = 'none';
+}
+
+// Fim
+
+// Começo forma de pagamento
+
+function exibirFormaDePagamento(){
+    contentBlockDaFormaDePagamento.style.display = 'flex';
+    contentBlockDaFormaDePagamento.style.flexDirection = 'colunm';
+}
+
+const listaFormaDePagamento = [];
+function cadastrarFormaDePagamento(){
+    var formaPagamento = buscarFormaDePagamentoDoCliente.value;
+    listaFormaDePagamento.push(formaPagamento);
+
+    exibicaoDeFormaDePagamento.innerHTML = "";
+    for(var i = 0; i < listaFormaDePagamento.length; i++){
+        exibicaoDeFormaDePagamento.innerHTML += `
+        ${listaFormaDePagamento[i]}<br>
+        `
+    }
+}
+    
+    // Fim
