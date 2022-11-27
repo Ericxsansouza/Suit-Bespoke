@@ -114,6 +114,7 @@ function cadastrarFormaDePagamento(){
         ${listaFormaDePagamento[i]}<br>
         `
     }
+    contentBlockDaFormaDePagamento.style.display = 'none';
 }
     
     // Fim
