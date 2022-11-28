@@ -24,7 +24,7 @@ function buscarUltimasMedidas(idUsuario, limite_linhas) {
     return database.executar(instrucaoSql);
 }
 
-function buscarMedidasEmTempoReal(idUsuario) {
+function buscarResultado(idUsuario) {
 
     instrucaoSql = ''
 
@@ -38,7 +38,7 @@ function buscarMedidasEmTempoReal(idUsuario) {
                     order by id desc`;
 
     } else if (process.env.AMBIENTE_PROCESSO == "desenvolvimento") {
-        instrucaoSql = `SELECT count(*) FROM usuario;`;
+        instrucaoSql = `SELECT count(${idUsuario}) FROM usuario;`;
     } else {
         console.log("\nO AMBIENTE (produção OU desenvolvimento) NÃO FOI DEFINIDO EM app.js\n");
         return
@@ -51,5 +51,5 @@ function buscarMedidasEmTempoReal(idUsuario) {
 
 module.exports = {
     buscarUltimasMedidas,
-    buscarMedidasEmTempoReal
+    buscarResultado
 }

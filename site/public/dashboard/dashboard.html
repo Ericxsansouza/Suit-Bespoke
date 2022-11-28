@@ -7,10 +7,10 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SUIT'Bespoke | Dashboard</title>
-    <link rel="stylesheet" href="../public/css/index.style.css">
-    <link rel="stylesheet" href="../public/css/global.style.css">
-    <script src="../public/js/script.js"></script>
-    <link rel="shortcut icon" type="imagem/x-icon" href="../public/assets/s.png">
+    <link rel="stylesheet" href="../css/index.style.css">
+    <link rel="stylesheet" href="../css/global.style.css">
+    <script src="../js/script.js"></script>
+    <link rel="shortcut icon" type="imagem/x-icon" href="../assets/s.png">
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link
     href="https://fonts.googleapis.com/css2?family=Exo+2:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
@@ -23,7 +23,7 @@
         <div class="header_nav">
             <button class="btn_toggle" onclick="abrirNav()">
                 <span class="nav_icon">
-                    <img class="nav_icon-hamburguer" src="../public/assets/icons/menu-de-tres-linhas.png" alt="">
+                    <img class="nav_icon-hamburguer" src="../assets/icons/menu-de-tres-linhas.png" alt="">
                 </span>
             </button>
         </div>
@@ -33,23 +33,23 @@
                 <div class="navegation_nav">
                     <details class="collapse">
                         <summary class="title">Ternos</summary>
-                        <a href="../public/SectionClassic.html">Clássicos</a><br>
-                        <a href="../public/sectionComteporary.html">Contemporâneo</a><br>
-                        <a href="../public/sectionTuxedo.html">Tuxedo</a>
+                        <a href="../SectionClassic.html">Clássicos</a><br>
+                        <a href="../sectionComteporary.html">Contemporâneo</a><br>
+                        <a href="../sectionTuxedo.html">Tuxedo</a>
                     </details>
                     <details class="collapse">
                         <summary class="title">Sapatos</summary>
-                        <a href="../public/sectionOxford.html">Oxford</a><br>
-                        <a href="../public/sectionMonkStrap.html">Monk Straps</a><br>
-                        <a href="../public/sectionLoafer.html">Loafer</a>
+                        <a href="../sectionOxford.html">Oxford</a><br>
+                        <a href="../sectionMonkStrap.html">Monk Straps</a><br>
+                        <a href="../sectionLoafer.html">Loafer</a>
                     </details>
                     <details class="collapse">
                         <summary class="title">Acessórios</summary>
-                        <a href="../public/sectionTies.html">Gravatas</a><br>
-                        <a href="../public/sectionCinto.html">Cinto</a><br>
-                        <a href="../public/sectionPocket.html">Pocket Squares</a><br>
+                        <a href="../sectionTies.html">Gravatas</a><br>
+                        <a href="../sectionCinto.html">Cinto</a><br>
+                        <a href="../sectionPocket.html">Pocket Squares</a><br>
                     </details>
-                    <img src="../public/assets/s.png" alt="">
+                    <img src="../assets/s.png" alt="">
                 </div>
             </div>
         </div>
@@ -58,10 +58,10 @@
         </div>
         <div class="header_actions">
             <div class="header__actions-item">
-                <button onclick="entrar()"><img src="../public/assets/icons/perfil-de-usuario.png" alt=""></a></button>
+                <button onclick="entrar()"><img src="../assets/icons/perfil-de-usuario.png" alt=""></a></button>
             </div>
             <div class="header__actions-item">
-                <a href="../dashboard/dashboard.html"><img src="../public/assets/icons/configuracao.png" alt=""></a>
+                <a href="../dashboard.html"><img src="../assets/icons/configuracao.png" alt=""></a>
             </div>
         </div>
     </header>
@@ -73,26 +73,6 @@
 </html>
 
 <script>
-//     const ctx = document.getElementById('myChart');
-
-// new Chart(ctx, {
-//   type: 'bar',
-//   data: {
-//     labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
-//     datasets: [{
-//       label: '# of Votes',
-//       data: [12, 19, 3, 5, 2, 3],
-//       borderWidth: 1
-//     }]
-//   },
-//   options: {
-//     scales: {
-//       y: {
-//         beginAtZero: true
-//       }
-//     }
-//   }
-// });
     // window.onload = obterDadosGrafico(1);
   window.onload = obterDadosGrafico(1);
 
@@ -113,7 +93,7 @@ function obterDadosGrafico(idUsuario) {
   //   clearTimeout(proximaAtualizacao);
   // }
 
-  fetch(`/medidas/ultimas/${idUsuario}`, { cache: 'no-store' }).then(function (response) {
+  fetch(`/medidas/buscar/${idUsuario}`, { cache: 'no-store' }).then(function (response) {
     if (response.ok) {
       response.json().then(function (resposta) {
         console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
@@ -133,8 +113,6 @@ function obterDadosGrafico(idUsuario) {
 //Esta função (plotarGrafico) usa os dados capturados na função anterior para criar o gráfico
 
 function plotarGrafico(resposta, idUsuario) {
-  var freezer = idselectFreezer.value;
-
   console.log('iniciando plotagem do gráfico...');
 
   // Criando estrutura para plotar gráfico - labels
@@ -144,7 +122,7 @@ function plotarGrafico(resposta, idUsuario) {
   let dados = {
     labels: labels,
     datasets: [{
-      label: 'Temperatura',
+      label: 'Cadastros',
       data: [],
       fill: false,
       borderColor: 'rgb(199, 52, 52)',
@@ -173,7 +151,7 @@ function plotarGrafico(resposta, idUsuario) {
 
   // Criando estrutura para plotar gráfico - config
   const config = {
-    type: 'line',
+    type: 'bar',
     data: dados,
   };
 
@@ -189,7 +167,7 @@ function plotarGrafico(resposta, idUsuario) {
 
 function atualizarGrafico(idUsuario, dados, myChart) {
 
-  fetch(`/medidas/tempo-real/${idUsuario}`, { cache: 'no-store' }).then(function (response) {
+  fetch(`/medidas/buscar/${idUsuario}`, { cache: 'no-store' }).then(function (response) {
     if (response.ok) {
       response.json().then(function (novoRegistro) {
 
@@ -222,7 +200,7 @@ function atualizarGrafico(idUsuario, dados, myChart) {
         // Altere aqui o valor em ms se quiser que o gráfico atualize mais rápido ou mais devagar
         proximaAtualizacao = setTimeout(() => atualizarGrafico(idUsuario, dados, myChart), 2000);
       });
-    } else {
+    } else {                                                
       console.error('Nenhum dado encontrado ou erro na API');
       // Altere aqui o valor em ms se quiser que o gráfico atualize mais rápido ou mais devagar
       proximaAtualizacao = setTimeout(() => atualizarGrafico(idUsuario, dados, myChart), 2000);
