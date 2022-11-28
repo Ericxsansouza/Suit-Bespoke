@@ -492,7 +492,6 @@ header.sticky {
 .end{
     width: 100%;
     display: flex;
-    justify-content:left;
     align-items: center;
     margin-top: 1rem;
 }
@@ -512,4 +511,54 @@ header.sticky {
     font-size: 12px;
     cursor: default;
     font-family: 'Be Vietnam Pro', sans-serif;
+    margin-right: 1rem;
+}
+
+/* CSS Carrinho */
+
+.header_nav_overlay_rigth{
+    width: 0%;
+    height: 100%;
+    background-color:rgb(255, 255, 255);
+    z-index: 9;
+    position: fixed;
+    left: 65%;
+    top: 0;
+    overflow-x: hidden;
+    transition: all .5s;
+    box-shadow: 5px 10px 100px #8888888a;
+}
+
+
+.imgLixo{
+   width: 25px;
+   height: 25px;
+}
+
+.imgX{
+   width: 20px;
+   height: 20px;
+}
+
+.contentFinal button{
+    margin-top: 1rem;
+    border: none;
+    cursor: pointer;
+    background-color: var(--white);
+}
+
+.header_nav_overlay_rigth button{
+    margin-top: 1rem;
+    border: none;
+    cursor: pointer;
+    background-color: var(--white);
+    margin-left: 8px;
+    margin-bottom: 1rem;
+}
+
+#totalFinal{
+    color: var(--blue-darkest);
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    margin-left: 8px;
 }

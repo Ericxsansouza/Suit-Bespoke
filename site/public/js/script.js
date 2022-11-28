@@ -56,3 +56,88 @@ function converter() {
         `
     }
 }
+
+// Carrinho
+
+const valorDoTerno1 = 899;
+const valorDoTerno2 = 999;
+const valorDoTerno3 = 1010;
+function irParaCarrinho() {
+    document.getElementById("actionNav2").style.width = '35%';
+    const item = ['Costume Cinza Havana', './assets/SuitcomTies.png'];
+    var i = 1;
+    console.log(item);
+    console.log('No log aparece');
+
+    while (i < item.length) {
+        resultado.innerHTML += `
+        <div class="contentProduct">
+        <img src= ${item[1]} alt=""><br>
+        <h4>${item[0]}</h4>
+        <p class="p_description">Pura Lã Casentino por Casentino, Itália</p>
+        </div>
+        `
+        i++;
+        totalFinal.innerHTML = "";
+        totalFinal.innerHTML += `
+        SubTotal:<b> $${valorDoTerno1 + valorDoTerno2 + valorDoTerno3}</b>
+        `
+    }
+}
+
+function irParaCarrinho2() {
+    document.getElementById("actionNav2").style.width = '35%';
+    const item2 = ['Costume Havana Preto', './assets/SuitBlack.png'];
+    var i = 1;
+    console.log(item2);
+    console.log('No log aparece');
+
+    while (i < item2.length) {
+        resultado.innerHTML += `
+        <div class="contentProduct">
+        <img src= ${item2[1]} alt=""><br>
+        <h4>${item2[0]}</h4>
+        <p class="p_description">Caxemira de lã por E.Thomas, Itália</p>
+        </div>
+        `
+        i++;
+        totalFinal.innerHTML = "";
+        totalFinal.innerHTML += `
+        SubTotal:<b> $${valorDoTerno2 + valorDoTerno3}</b>
+        `
+    }
+}
+
+function irParaCarrinho3() {
+    document.getElementById("actionNav2").style.width = '35%';
+    const item3 = ['Costume Light Grey Havana', './assets/SuitGray.png'];
+    var i = 1;
+    console.log(item3);
+    console.log('No log aparece');
+
+    while (i < item3.length) {
+        resultado.innerHTML += `
+        <div class="contentProduct">
+        <img src= ${item3[1]} alt=""><br>
+        <h4>${item3[0]}</h4>
+        <p class="p_description">Lã Pura por Solbiati, Itália</p>
+        </div>
+        `
+        i++;
+        totalFinal.innerHTML = "";
+        totalFinal.innerHTML += `
+        SubTotal:<b> $${valorDoTerno3}</b>
+        `
+    }
+}
+
+function excluirTerno(){
+    resultado.innerHTML = "";
+    totalFinal.innerHTML = "";
+    
+}
+
+function excluirCompra() {
+    resultado.innerHTML = "";
+    document.getElementById("actionNav2").style.width = '0%';
+}

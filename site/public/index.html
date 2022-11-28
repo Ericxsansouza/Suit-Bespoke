@@ -83,6 +83,7 @@
                     <div class="end">
                         <button onclick="contarCurtidas1()"><img src="assets/icons/mao.png" alt=""></button>
                         <b id="contador1"></b>
+                        <button onclick="irParaCarrinho()"><img src="assets/icons/salvar.png" alt=""></button>
                     </div>
                 </div>
                 <div class="contentProduct">
@@ -93,6 +94,7 @@
                     <div class="end">
                         <button onclick="contarCurtidas2()"><img src="assets/icons/mao.png" alt=""></button>
                         <b id="contador2"></b>
+                        <button onclick="irParaCarrinho2()"><img src="assets/icons/salvar.png" alt=""></button>
                     </div>
                 </div>
                 <div class="contentProduct">
@@ -103,8 +105,21 @@
                     <div class="end">
                         <button onclick="contarCurtidas3()"><img src="assets/icons/mao.png" alt=""></button>
                         <b id="contador3"></b>
+                        <button onclick="irParaCarrinho3()"><img src="assets/icons/salvar.png" alt=""></button>
                     </div>
                 </div>
+
+                <div class="header_nav_overlay_rigth" id="actionNav2">
+                    <button onclick="excluirCompra()"><img class="imgX" src="assets/icons/x.png" alt=""></button>
+                    <div id="resultado">
+                    </div>
+                    <div class="contentFinal">
+                        <button onclick="excluirTerno()"><img class="imgLixo" src="assets/icons/lixeira.png" alt=""></button>
+                        <hr>
+                        <p id="totalFinal"></p>
+                    </div>
+                </div>
+
             </div>
         </div>
     </section>
