@@ -14,7 +14,7 @@ function buscarUltimasMedidas(idUsuario, limite_linhas) {
                     where fk_aquario = ${idUsuario}
                     order by id desc`;
     } else if (process.env.AMBIENTE_PROCESSO == "desenvolvimento") {
-        instrucaoSql = `SELECT count(*) FROM usuario;`;
+        instrucaoSql = `SELECT count(${idUsuario}) as momento_grafico FROM usuario;`;
     } else {
         console.log("\nO AMBIENTE (produção OU desenvolvimento) NÃO FOI DEFINIDO EM app.js\n");
         return
@@ -38,7 +38,7 @@ function buscarResultado(idUsuario) {
                     order by id desc`;
 
     } else if (process.env.AMBIENTE_PROCESSO == "desenvolvimento") {
-        instrucaoSql = `SELECT count(${idUsuario}) FROM usuario;`;
+        instrucaoSql = `SELECT count(${idUsuario}) as momento_grafico FROM usuario;`;
     } else {
         console.log("\nO AMBIENTE (produção OU desenvolvimento) NÃO FOI DEFINIDO EM app.js\n");
         return
