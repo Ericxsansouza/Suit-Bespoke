@@ -81,7 +81,7 @@
                     <p class="p_description">Pura Lã Casentino por Casentino, Itália</p>
                     <h3>$899</h3>
                     <div class="end">
-                        <button onclick="contarCurtidas1()"><img src="assets/icons/mao.png" alt=""></button>
+                        <button onclick="curtir(1)"><img src="assets/icons/mao.png" alt=""></button>
                         <b id="contador1"></b>
                         <button onclick="irParaCarrinho()"><img src="assets/icons/salvar.png" alt=""></button>
                     </div>
@@ -92,7 +92,7 @@
                     <p class="p_description">Caxemira de lã por E.Thomas, Itália</p>
                     <h3>$999</h3>
                     <div class="end">
-                        <button onclick="contarCurtidas2()"><img src="assets/icons/mao.png" alt=""></button>
+                        <button onclick="curtir(2)"><img src="assets/icons/mao.png" alt=""></button>
                         <b id="contador2"></b>
                         <button onclick="irParaCarrinho2()"><img src="assets/icons/salvar.png" alt=""></button>
                     </div>
@@ -103,7 +103,7 @@
                     <p class="p_description">Lã Pura por Solbiati, Itália</p>
                     <h3>$1.010</h3>
                     <div class="end">
-                        <button onclick="contarCurtidas3()"><img src="assets/icons/mao.png" alt=""></button>
+                        <button onclick="curtir(3)"><img src="assets/icons/mao.png" alt=""></button>
                         <b id="contador3"></b>
                         <button onclick="irParaCarrinho3()"><img src="assets/icons/salvar.png" alt=""></button>
                     </div>
@@ -114,7 +114,8 @@
                     <div id="resultado">
                     </div>
                     <div class="contentFinal">
-                        <button onclick="excluirTerno()"><img class="imgLixo" src="assets/icons/lixeira.png" alt=""></button>
+                        <button onclick="excluirTerno()"><img class="imgLixo" src="assets/icons/lixeira.png"
+                                alt=""></button>
                         <hr>
                         <p id="totalFinal"></p>
                     </div>
@@ -126,25 +127,25 @@
 
     <section class="section_Information">
         <div class="container">
-                <div class="contentInformation">
-                    <h1 class="titleInformation">Não basta encaixar,<br>
+            <div class="contentInformation">
+                <h1 class="titleInformation">Não basta encaixar,<br>
                     encontre seu próprio ajuste perfeito.</h1>
-                </div>
-                <div class="contentInformationBox">
-                    <div class="contentBoxInfo">
-                        <img src="./assets/icons/icon-alterations.svg" alt="">
-                        <h3>Alterações</h3>
-                        <p class="subtitleAlerations">Encurtar, alongar, afunilar e <br>muito mais,
+            </div>
+            <div class="contentInformationBox">
+                <div class="contentBoxInfo">
+                    <img src="./assets/icons/icon-alterations.svg" alt="">
+                    <h3>Alterações</h3>
+                    <p class="subtitleAlerations">Encurtar, alongar, afunilar e <br>muito mais,
                         feito pelos nossos <br>alfaiates especializados na loja.</p>
-                    </div>
-                    <div class="contentBoxInfo">
-                        <img src="./assets/icons/icon-custom-made.svg" alt="">
-                        <h3>Personalizado</h3>
-                        <p class="subtitleCustom">Crie seu próprio Feito Sob Medida.<br>
+                </div>
+                <div class="contentBoxInfo">
+                    <img src="./assets/icons/icon-custom-made.svg" alt="">
+                    <h3>Personalizado</h3>
+                    <p class="subtitleCustom">Crie seu próprio Feito Sob Medida.<br>
                         Peça do zero.</p>
-                    </div>
                 </div>
             </div>
+        </div>
         </div>
     </section>
 
@@ -155,7 +156,8 @@
         <div class="contentInfoStore">
             <h3>Localização</h3>
             <p>Alameda Gabriel Monteiro da Silva, 847 <br> Jardim America, São Paulo - SP <br>01441-002</p><br>
-            <a href="https://www.google.com/maps/dir//vasco+vasconcellos/@-23.5829765,-46.7143595,12z/data=!4m9!4m8!1m0!1m5!1m1!1s0x94ce59fd34e4dd71:0xa1851ea53be3d1cc!2m2!1d-46.678196!2d-23.5676817!3e0"><button>Mapa</button></a>
+            <a
+                href="https://www.google.com/maps/dir//vasco+vasconcellos/@-23.5829765,-46.7143595,12z/data=!4m9!4m8!1m0!1m5!1m1!1s0x94ce59fd34e4dd71:0xa1851ea53be3d1cc!2m2!1d-46.678196!2d-23.5676817!3e0"><button>Mapa</button></a>
         </div>
     </section>
 
@@ -163,7 +165,8 @@
         <div class="container">
             <div class="form">
                 <h4>Seja nosso cliente vip.</h4>
-                <p class="subtitle_form">Inscreva-se para receber as últimas novidades sobre produtos, estilo e eventos.</p>
+                <p class="subtitle_form">Inscreva-se para receber as últimas novidades sobre produtos, estilo e eventos.
+                </p>
                 <input type="text" placeholder="Email" id="input_1">
                 <button onclick="enviar_email()">Enviar</button>
                 <b id="exibirMensage"></b>
@@ -218,3 +221,79 @@
 </body>
 
 </html>
+
+<script>
+    function curtir(idProduto) {
+
+        var idUsuario = sessionStorage.getItem("ID_USUARIO")
+        console.log(idUsuario);
+        fetch(`medidas/curtir/${idProduto}`, {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                idUsuario: idUsuario,
+            })
+        }).then(function (resposta) {
+
+            console.log("resposta: ", resposta);
+
+            if (resposta.ok) {
+                // alert('curtida feita com sucesso!')
+                atualizacaoPeriodica();
+            } else {
+                throw ("Houve um erro ao tentar realizar o curtir!");
+            }
+        }).catch(function (resposta) {
+            console.log(`#ERRO: ${resposta}`);
+        });
+
+        return false;
+    }
+
+    window.onload = atualizacaoPeriodica();
+    function atualizacaoPeriodica() {
+        obterdados(1);
+        obterdados(2);
+        obterdados(3);
+    }
+
+
+    function obterdados(idProduto) {
+        console.log(idProduto)
+        fetch(`/medidas/dadosCurtida/${idProduto}`)
+            .then(resposta => {
+
+                if (resposta.ok) {
+                    resposta.json().then(resposta => {
+
+                        console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
+
+                        var dados = {
+                            Curtidas: resposta[0].Curtidas,
+                            fkProduto: resposta[0].fkProduto
+                        }
+                        plotar(dados);
+                    });
+                } else {
+
+                    console.error('Nenhum dado encontrado ou erro na API');
+                }
+            })
+            .catch(function (error) {
+                console.error(`Erro na obtenção dos dados do aquario p/ gráfico: ${error.message}`);
+            });
+
+    }
+
+    function plotar(dados) {
+        if (dados.fkProduto == 1) {
+            contador1.innerHTML = dados.Curtidas;
+        } else if (dados.fkProduto == 2) {
+            contador2.innerHTML = dados.Curtidas;
+        } else if (dados.fkProduto == 3) {
+            contador3.innerHTML = dados.Curtidas;           
+        } 
+    }
+</script>

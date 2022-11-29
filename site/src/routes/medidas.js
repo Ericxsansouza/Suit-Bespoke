@@ -15,4 +15,12 @@ router.get("/buscar/:idUsuario", function (req, res) {
     medidaController.buscarResultado(req, res);
 });
 
+router.get("/dadosCurtida/:idProduto", function (req, res) {
+    medidaController.obterDados(req, res);
+});
+
+router.post("/curtir/:idProduto", function (req, res) {
+    medidaController.curtir(req, res);
+});
+
 module.exports = router;

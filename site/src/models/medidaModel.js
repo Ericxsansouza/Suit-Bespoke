@@ -48,8 +48,32 @@ function buscarResultado(idUsuario) {
     return database.executar(instrucaoSql);
 }
 
+function curtir(idUsuario, idProduto) {
+
+
+    
+        instrucaoSql = `INSERT INTO curtida (curtida, fkProduto, fkUsuario)
+        VALUES (1, ${idProduto}, ${idUsuario})`;
+
+
+
+    console.log("Executando a instrução SQL: \n" + instrucaoSql);
+    return database.executar(instrucaoSql);
+}
+
+function obterDados(idProduto) {
+
+        instrucaoSql = `SELECT count(curtida) as Curtidas, fkProduto FROM curtida where fkProduto = ${idProduto};`;
+
+    console.log("Executando a instrução SQL: \n" + instrucaoSql);
+    return database.executar(instrucaoSql);
+}
+
+
 
 module.exports = {
     buscarUltimasMedidas,
-    buscarResultado
+    buscarResultado,
+    curtir,
+    obterDados
 }
