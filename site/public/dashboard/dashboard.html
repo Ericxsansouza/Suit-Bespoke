@@ -67,41 +67,41 @@
   </header>
 
   <div class="graph">
-    <canvas id="lineChart" width="700" height="200"></canvas>
+    <canvas id="lineChart" width="500" height="400"></canvas>
   </div>
 </body>
 
 </html>
 
 <script>
-  fetch("/medidas/grafico").then(function (resposta) {
+    fetch("/medidas/grafico").then(function (resposta) {
 
-    resposta.json().then(function (json) {
+      resposta.json().then(function (json) {
 
-      const config = {
-        type: "bar",
-        data: {
-          labels: ['Quantidade de Cadastro'],
-          datasets: [
-            {
-              label: "QTD",
-              data: [json[0].qtdCadastro],
-              backgroundColor: "rgb(38, 57, 89)",
-              borderColor: "rgb(38, 57, 89)"
-            }
-          ]
-        },
+        const config = {
+          type: "bar",
+          data: {
+            labels: ['Quantidade de Cadastro'],
+            datasets: [
+              {
+                label: "QTD",
+                data: [json[0].qtdCadastro],
+                backgroundColor: "rgb(38, 57, 89)",
+                borderColor: "rgb(38, 57, 89)"
+              }
+            ]
+          },
 
-        options: {
-          maintainAspectRatio: false
+          options: {
+            maintainAspectRatio: false
+          }
         }
-      }
-    });
-  });
-
-  let myChart = new Chart(
-            document.getElementById('lineChart'),
-            config
-        );
+        let myChart = new Chart(
+          document.getElementById('lineChart'), config);
+      })
+      console.log(resposta);
+    }).catch(function (erro){
+      console.log(erro);
+    })
 
 </script>
