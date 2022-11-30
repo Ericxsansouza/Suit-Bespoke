@@ -106,6 +106,7 @@ header.sticky {
     font-size: 20px;
     letter-spacing: 0.1em;
     cursor: pointer;
+    margin-left: 1.5rem;
 }
 
 .header_actions{
@@ -497,7 +498,7 @@ header.sticky {
 }
 
 .end img{
-    width: 20px;
+    width: 24px;
 }
 
 .end button{

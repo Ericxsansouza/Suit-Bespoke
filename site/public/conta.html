@@ -9,6 +9,7 @@
     <script src="./js/scriptConta.js"></script>
     <script src="./js/script.js"></script>
     <script src="./js/funcoes.js"></script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     <link rel="shortcut icon" type="imagem/x-icon" href="./assets/s.png">
     <title>SUIT'Bespoke | Conta</title>
 </head>
@@ -109,7 +110,8 @@ function entrar() {
     var senhaUsuario = input_password.value;
 
     if (emailUsuario == "" || senhaUsuario == "") {
-        alert("Mensagem de erro para todos os campos em branco");
+        swal("Preencha todos os campos", "campos em branco não serão aceitos", "error");
+        // alert("Mensagem de erro para todos os campos em branco");
         finalizarAguardar();
         return false;
     }

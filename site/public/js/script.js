@@ -4,7 +4,7 @@ window.addEventListener("scroll", function () {
 });
 
 function abrirNav() {
-    document.getElementById("actionNav").style.width = '35%';
+    document.getElementById("actionNav").style.width = '30%';
 }
 
 function fecharNav() {
