@@ -19,6 +19,10 @@ router.get("/dadosCurtida/:idProduto", function (req, res) {
     medidaController.obterDados(req, res);
 });
 
+router.get("/grafico", function (req, res) {
+    medidaController.grafico(req, res);
+});
+
 router.post("/curtir/:idProduto", function (req, res) {
     medidaController.curtir(req, res);
 });

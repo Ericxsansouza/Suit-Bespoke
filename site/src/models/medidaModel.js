@@ -69,11 +69,20 @@ function obterDados(idProduto) {
     return database.executar(instrucaoSql);
 }
 
+function grafico() {
+
+    instrucaoSql = `SELECT count(idUsuario) as qtdCadastro FROM usuario;`;
+
+console.log("Executando a instrução SQL: \n" + instrucaoSql);
+return database.executar(instrucaoSql);
+} 
+
 
 
 module.exports = {
     buscarUltimasMedidas,
     buscarResultado,
     curtir,
-    obterDados
+    obterDados,
+    grafico
 }
