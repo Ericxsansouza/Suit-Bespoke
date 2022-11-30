@@ -71,7 +71,7 @@ function obterDados(idProduto) {
 
 function grafico() {
 
-    instrucaoSql = `SELECT count(idUsuario) as qtdCadastro FROM usuario;`;
+    instrucaoSql = `SELECT nome, qtdEstoque FROM produto;`;
 
 console.log("Executando a instrução SQL: \n" + instrucaoSql);
 return database.executar(instrucaoSql);

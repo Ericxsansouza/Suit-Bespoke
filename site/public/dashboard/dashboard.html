@@ -9,7 +9,9 @@
   <title>SUIT'Bespoke | Dashboard</title>
   <link rel="stylesheet" href="../css/index.style.css">
   <link rel="stylesheet" href="../css/global.style.css">
+  <link rel="stylesheet" href="./dashboard.css">
   <script src="../js/script.js"></script>
+  <script src="dashboard.js"></script>
   <link rel="shortcut icon" type="imagem/x-icon" href="../assets/s.png">
   <link rel="preconnect" href="https://fonts.gstatic.com">
   <link
@@ -54,54 +56,56 @@
       </div>
     </div>
     <div class="header_nav_title">
-      <h1 class="nav_title" onchange="inicializar()">SUIT'Bespoke</h1>
+      <h1 class="nav_title" onclick="inicializar()">SUIT'Bespoke</h1>
     </div>
     <div class="header_actions">
       <div class="header__actions-item">
         <button onclick="entrar()"><img src="../assets/icons/perfil-de-usuario.png" alt=""></a></button>
       </div>
       <div class="header__actions-item">
-        <a href="../dashboard.html"><img src="../assets/icons/configuracao.png" alt=""></a>
+        <a href="../myPage.html"><img src="../assets/icons/configuracao.png" alt=""></a>
       </div>
     </div>
   </header>
 
-  <div class="graph">
-    <canvas id="lineChart" width="500" height="400"></canvas>
+  <div class="contentGrafico">
+    <div class="graph">
+      <canvas id="lineChart" width="500" height="400"></canvas>
+    </div>
   </div>
 </body>
 
 </html>
 
 <script>
-    fetch("/medidas/grafico").then(function (resposta) {
+  fetch("/medidas/grafico").then(function (resposta) {
 
-      resposta.json().then(function (json) {
+    resposta.json().then(function (json) {
 
-        const config = {
-          type: "bar",
-          data: {
-            labels: ['Quantidade de Cadastro'],
-            datasets: [
-              {
-                label: "QTD",
-                data: [json[0].qtdCadastro],
-                backgroundColor: "rgb(38, 57, 89)",
-                borderColor: "rgb(38, 57, 89)"
-              }
-            ]
-          },
+      const config = {
+        type: "pie",
+        data: {
+          labels: [json[0].nome, json[1].nome, json[2].nome],
+          datasets: [
+            {
+              label: "QTD de produtos disponíveis",
+              data: [json[0].qtdEstoque, json[1].qtdEstoque, json[2].qtdEstoque],
+              backgroundColor: ["#252629", "#A6A6A6", "#2d3118"],
+              borderColor: ["#252629", "#A6A6A6", "#2d3118"]
+            }
+          ]
+        },
 
-          options: {
-            maintainAspectRatio: false
-          }
+        options: {
+          maintainAspectRatio: false
         }
-        let myChart = new Chart(
-          document.getElementById('lineChart'), config);
-      })
-      console.log(resposta);
-    }).catch(function (erro){
-      console.log(erro);
+      }
+      let myChart = new Chart(
+        document.getElementById('lineChart'), config);
     })
+    console.log(resposta);
+  }).catch(function (erro) {
+    console.log(erro);
+  })
 
 </script>
